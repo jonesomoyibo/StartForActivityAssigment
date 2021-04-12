@@ -18,7 +18,7 @@ class ActivityB : AppCompatActivity() {
         }
 
         val qString:String? = extras.getString("Question")
-        val textView:TextView = findViewById<TextView>(R.id.textView1)
+        val textView:TextView = findViewById<TextView>(R.id.questiontextView)
 
         textView.setText(qString);
 
@@ -32,7 +32,7 @@ class ActivityB : AppCompatActivity() {
     }
 
     override fun finish() {
-        val editText: EditText = findViewById<EditText>(R.id.editText)
+        val editText: EditText = findViewById<EditText>(R.id.questionEditView)
         val intent: Intent = Intent(this, ActivityA::class.java)
 
         val myString: String = editText.getText().toString()

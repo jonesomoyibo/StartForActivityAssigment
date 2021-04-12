@@ -1,7 +1,7 @@
 package com.decagon.jones.uipractice
 
 
-import android.R.attr
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -16,18 +16,18 @@ class ActivityA : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var editText: EditText
+
 
 
     }
 
     public fun onClick(view: View): Unit {
 
-        val editText: EditText = findViewById<EditText>(R.id.editText)
+        val editTextView: EditText = findViewById<EditText>(R.id.questionEditView)
 
         val intent: Intent = Intent(this, ActivityB::class.java)
 
-        val myString: String = editText.getText().toString()
+        val myString: String = editTextView.getText().toString()
 
         intent.putExtra("Question", myString);
 
@@ -38,12 +38,12 @@ class ActivityA : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        val editText: EditText = findViewById<EditText>(R.id.editText)
+        val editText: EditText = findViewById<EditText>(R.id.questionEditView)
         editText.setText("")
         if(requestCode == 100 && resultCode == RESULT_OK){
-            val textView1 = findViewById<View>(R.id.editTextView1) as TextView
+            val answerTextView = findViewById<View>(R.id.answerTextView) as TextView
 
-            textView1.setText(data?.getStringExtra("Answer"))
+            answerTextView.setText(data?.getStringExtra("Answer"))
         }
     }
 }
